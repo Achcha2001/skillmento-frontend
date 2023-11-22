@@ -1,0 +1,24 @@
+.contact-us-container {
+    max-width: 600px;
+    margin: 150px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  /* Contact-Us.css */
+
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .success-message {
+    color: green;
+    margin-top: 10px;
+  }
+  
+  .error-message {
+    color: red;
+    margin-top: 10px;
+  }
+  

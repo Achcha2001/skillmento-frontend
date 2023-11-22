@@ -1,0 +1,28 @@
+/* CVIdeas.css */
+
+.cv-ideas {
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 60px ;
+    padding: 20px;
+  }
+  body{
+    background-color: rgb(190, 190, 190);
+  }
+  
+  .cv-idea {
+    border: 1px solid #ddddddeb;
+    margin-bottom: 20px;
+    padding: 10px;
+    background: linear-gradient(grey,blue,grey);
+  }
+  
+  .cv-idea h3 {
+    color: #cececee7;
+  }
+  
+  .cv-idea p {
+    color: #ffffff;
+  }
+  

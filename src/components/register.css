@@ -1,0 +1,63 @@
+/* register.css */
+
+.registration-container {
+    max-width: 400px;
+    margin-top: 12%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: auto;
+    padding: 20px;
+    background-color: #f8f9fa; /* Light gray background color */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Shadow effect */
+  }
+  
+  h2 {
+    text-align: center;
+    color: #007bff; /* Primary color for headings */
+  }
+  
+  .tab-buttons {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+  }
+  
+  .tab-buttons button {
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    background-color: #007bff; /* Primary button color */
+    color: #fff; /* Text color */
+    border-radius: 5px;
+  }
+  
+  .tab-buttons button.active {
+    background-color: #0056b3; /* Darker color for active tab */
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  form input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ced4da; /* Border color */
+    border-radius: 5px;
+  }
+  
+  button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff; /* Primary button color */
+    color: #fff; /* Text color */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #0056b3; /* Darker color on hover */
+  }
+  

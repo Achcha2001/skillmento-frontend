@@ -5,6 +5,7 @@
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+ background: linear-gradient(orange,rgb(255, 122, 39),rgb(235, 103, 3));
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -14,6 +15,7 @@
 }
 
 .App-header {
+  
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
@@ -36,3 +38,4 @@
     transform: rotate(360deg);
   }
 }
+

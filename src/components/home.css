@@ -1,0 +1,32 @@
+.button-container {
+    display: flex;
+    width: 70%;
+    gap: 10px; /* Adjust the gap between buttons as needed */
+  }
+  .btn-primary2{
+    background-color: gray;
+  }
+  .masthead{
+    margin-top: 50px;
+  }
+ 
+  .portfolio-item {
+ 
+    overflow: hidden;
+    background-color: black; /* Set the background color to black */
+    border-radius: 8px; /* Add rounded corners */
+    overflow: hidden; /* Hide overflowing content */
+    transition: transform 0.3s ease-in-out;
+    color: white; /* Set text color to white */
+    font-weight: bold;
+    text-align: center; /* Center text horizontally */
+    padding: 20px; /* Add padding to the content */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
+  }
+  
+  .portfolio-item:hover {
+    transform: scale(1.05); /* Scale the box slightly on hover */
+  }
+  .up{
+  background-color: rgb(197, 197, 197);
+  }
