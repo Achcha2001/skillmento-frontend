@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import './Contact-Us.css';
+import './baseurl';
 
 const ContactUs = () => {
   const [email, setEmail] = useState('');
@@ -17,7 +18,7 @@ const ContactUs = () => {
     };
 
     try {
-      const response = await axios.post('http://localhost:8080/contact-us', contactData, {
+      const response = await axios.post(`${baseURL}/contact-us`, contactData, {
         headers: {
           'Content-Type': 'application/json',
         },

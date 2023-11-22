@@ -1,7 +1,7 @@
 // Intern.js
 import './intern.css';
 import React, { useState, useEffect } from 'react';
-
+import './baseurl';
 const Intern = () => {
   const [loggedInUser, setLoggedInUser] = useState(null);
   const [activeTab, setActiveTab] = useState('cv');
@@ -10,7 +10,7 @@ const Intern = () => {
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const response = await fetch('http://localhost:8080/fetchUserData');
+        const response = await fetch(`${baseURL}/fetchUserData`);
         const data = await response.json();
 
         if (response.ok) {

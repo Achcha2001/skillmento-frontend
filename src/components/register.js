@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './register.css';
 import axios from 'axios';
+import './baseurl';
 
 const Register = () => {
   const [selectedTab, setSelectedTab] = useState('interns');
@@ -46,7 +47,7 @@ const Register = () => {
     };
 
     try {
-      const response = await axios.post(`http://localhost:8080/${selectedTab}`, userData, {
+      const response = await axios.post(`${baseURL}/${selectedTab}`, userData, {
         headers: {
           'Content-Type': 'application/json',
         },

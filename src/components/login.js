@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './login.css';
+import './baseurl';
 
 const Login = () => {
   const navigate = useNavigate();
@@ -12,7 +13,7 @@ const Login = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch('http://localhost:8080/login', {
+      const response = await fetch(`${baseURL}/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -20,7 +21,7 @@ const Login = () => {
         body: JSON.stringify({
           email,
           password,
-          userType: 'intern', // Specify the user type (intern, freelancer, employer)
+          userType: 'intern', 
         }),
       });
 
