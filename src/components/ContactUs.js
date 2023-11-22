@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import './Contact-Us.css';
-import './baseurl';
+import baseURL from './baseurl';
 
 const ContactUs = () => {
   const [email, setEmail] = useState('');

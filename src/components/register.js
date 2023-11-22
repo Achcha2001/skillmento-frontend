@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './register.css';
 import axios from 'axios';
-import './baseurl';
+import baseURL from './baseurl';
 
 const Register = () => {
   const [selectedTab, setSelectedTab] = useState('interns');

@@ -1,7 +1,7 @@
 // Intern.js
 import './intern.css';
 import React, { useState, useEffect } from 'react';
-import './baseurl';
+import baseURL from './baseurl';
 const Intern = () => {
   const [loggedInUser, setLoggedInUser] = useState(null);
   const [activeTab, setActiveTab] = useState('cv');
