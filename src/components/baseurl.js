@@ -1,2 +1,2 @@
-const baseURL = "https://skillmento-freelancing2.onrender.com";
+const baseURL = "https://skillmento-freelancing.onrender.com";
 export default baseURL;
