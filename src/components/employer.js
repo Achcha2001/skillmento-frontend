@@ -50,7 +50,7 @@ const Employer = () => {
 
   const fetchPostedJobs = async () => {
     try {
-      const response = await fetch('http://localhost:8080/fetchPostedJobs');
+      const response = await fetch(`${baseURL}/fetchPostedJobs`);
       const data = await response.json();
 
       if (response.ok) {
@@ -65,7 +65,7 @@ const Employer = () => {
 
   const handleDeleteJob = async (jobId) => {
     try {
-      const response = await fetch(`http://localhost:8080/deleteJob/${jobId}`, {
+      const response = await fetch(`${baseURL}/deleteJob/${jobId}`, {
         method: 'DELETE',
       });
   
@@ -151,7 +151,7 @@ const Employer = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch('http://localhost:8080/postJob', {
+      const response = await fetch(`${baseURL}/postJob`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -186,7 +186,7 @@ const Employer = () => {
   const handleViewBids = async (jobId) => {
     try {
       // Fetch bid details for the selected job
-      const response = await fetch(`http://localhost:8080/fetchJobBids/${jobId}`);
+      const response = await fetch(`${baseURL}/fetchJobBids/${jobId}`);
       const data = await response.json();
 
       if (response.ok) {

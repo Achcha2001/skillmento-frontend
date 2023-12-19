@@ -3,7 +3,7 @@ import './intern.css';
 import React, { useState, useEffect } from 'react';
 import { Calendar, momentLocalizer } from 'react-big-calendar';
 import moment from 'moment';
-//import baseURL from './baseurl';
+import baseURL from './baseurl';
 
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 
@@ -30,7 +30,7 @@ const [selectedJobForBid, setSelectedJobForBid] = useState(null);
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const response = await fetch('http://localhost:8080/fetchUserData');
+        const response = await fetch(`${baseURL}/fetchUserData`);
         const data = await response.json();
 
         if (response.ok) {
@@ -45,7 +45,7 @@ const [selectedJobForBid, setSelectedJobForBid] = useState(null);
 
     const fetchPostedJobs = async () => {
       try {
-        const response = await fetch('http://localhost:8080/fetchPostedJobs');
+        const response = await fetch(`${baseURL}/fetchPostedJobs`);
         const data = await response.json();
 
         if (response.ok) {
@@ -60,7 +60,7 @@ const [selectedJobForBid, setSelectedJobForBid] = useState(null);
 
     const fetchEmployers = async () => {
       try {
-        const response = await fetch('http://localhost:8080/fetchEmployers');
+        const response = await fetch(`${baseURL}/fetchEmployers`);
         const data = await response.json();
 
         if (response.ok) {
@@ -193,7 +193,7 @@ const [selectedJobForBid, setSelectedJobForBid] = useState(null);
     e.preventDefault();
 
     try {
-      const response = await fetch('http://localhost:8080/bookMockInterview', {
+      const response = await fetch(`${baseURL}/bookMockInterview`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -249,7 +249,7 @@ const [selectedJobForBid, setSelectedJobForBid] = useState(null);
     e.preventDefault();
   
     try {
-      const response = await fetch('http://localhost:8080/submitJobBid', {
+      const response = await fetch(`${baseURL}/submitJobBid`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

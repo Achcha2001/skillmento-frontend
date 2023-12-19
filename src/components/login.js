@@ -13,8 +13,8 @@ const Login = () => {
     e.preventDefault();
 
     try {
-      // Assuming you have a variable isEmployer to determine the user type dynamically
-      const isEmployer = true; // Set this based on your logic
+      
+      const isEmployer = true; 
 
       const userType = isEmployer ? 'employer' : 'intern';
 
