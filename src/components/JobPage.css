@@ -1,0 +1,28 @@
+/* JobPage.css */
+
+.job-page {
+    font-family: 'Arial', sans-serif;
+    margin-top: 10px;
+    
+    padding: 0;
+  }
+  
+  header {
+    background-color: #3498db;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .job-types {
+    max-width: 800px;
+    margin: 20px auto;
+  }
+  
+  .job-type {
+    background-color: #f2f2f2;
+    margin: 10px;
+    padding: 15px;
+    border-radius: 8px;
+  }
+  

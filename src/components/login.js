@@ -13,6 +13,11 @@ const Login = () => {
     e.preventDefault();
 
     try {
+      // Assuming you have a variable isEmployer to determine the user type dynamically
+      const isEmployer = true; // Set this based on your logic
+
+      const userType = isEmployer ? 'employer' : 'intern';
+
       const response = await fetch(`${baseURL}/login`, {
         method: 'POST',
         headers: {
@@ -21,7 +26,7 @@ const Login = () => {
         body: JSON.stringify({
           email,
           password,
-          userType: 'intern', 
+          userType,
         }),
       });
 
@@ -29,10 +34,10 @@ const Login = () => {
 
       if (response.ok) {
         console.log('Login successful:', data);
-        window.alert('Login successful');
+        window.alert(`Login successful. User Type: ${data.userType}`);
 
-        // Redirect to intern portal
-        navigate('/intern');
+        // Redirect to intern or employer portal based on userType
+        navigate(data.userType === 'employer' ? '/employer' : '/employer');
       } else {
         console.error('Login failed:', data.message);
         window.alert(`Login failed: ${data.message}`);

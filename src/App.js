@@ -13,7 +13,8 @@ import ContactUs from './components/ContactUs';
 import AboutUs from './components/about';
 import Intern from './components/interns';
 import CVIdeas from './components/cvideas';
-
+import Employer from './components/employer';
+import JobPage from './components/jobs';
 
 function App() {
   return (
@@ -28,6 +29,9 @@ function App() {
           <Route path='/contact' element={<ContactUs/>}/>
           <Route path='/about' element={<AboutUs/>}/>
           <Route path='/cvideas' element={<CVIdeas/>}/>
+          <Route path='/employer' element={<Employer/>}/>
+          <Route path='/jobs' element={<JobPage/>}/>
+          
 <Route path='/intern' element={<Intern/>}/>
         </Routes>
        

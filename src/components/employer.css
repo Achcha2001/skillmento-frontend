@@ -1,0 +1,211 @@
+/* employer.css */
+
+/* Styles for the form with class 'f1' */
+.f1 {
+    margin-top: 20px;
+  }
+  
+  .f1 label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .f1 select,
+  .f1 input,
+  .f1 textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  .f1 button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .f1 button:hover {
+    background-color: #0056b3;
+  }
+/* Add this to your CSS file or style section */
+
+/* Styles for the container */
+.posted-jobs-container {
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Styles for the title */
+  .posted-jobs-container h3 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  /* Styles for the job list */
+  .posted-jobs-container ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  /* Styles for each job item */
+  .posted-jobs-container li {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+  }
+  
+  /* Styles for the job details */
+  .posted-jobs-container li span {
+    font-weight: bold;
+    margin-right: 5px;
+    padding-left: 10px;
+  }
+  
+  /* Optional: Add some spacing between the details */
+  .posted-jobs-container li br {
+    display: none;
+  }
+  
+  .posted-jobs-container li span:last-child {
+    margin-right: 0;
+  }
+  /* Add this CSS to your existing CSS file or create a new one */
+
+.button-container {
+  display: flex;
+  margin-left: 12%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.view-bids-button
+ {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.delete-button{
+  background-color:red;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+
+}
+
+.view-bids-button:hover
+ {
+  background-color: #45a049;
+}
+.delete-button:hover{
+  background-color: darkred;
+}
+
+
+/* Add this to your existing CSS or create a new CSS file */
+
+.bid-details {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.bid-details h3 {
+  color: #333;
+}
+
+.bid-details div {
+  margin-bottom: 10px;
+}
+
+.bid-details p {
+  margin: 5px 0;
+}
+
+.bid-details button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.bid-details button:hover {
+  background-color: #0056b3;
+}
+/* Add this to your existing CSS or create a new CSS file */
+
+.bid-details {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.bid-details h3 {
+  color: #333;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.bid-details-item {
+  margin-bottom: 15px;
+}
+
+.bid-details-label {
+  font-weight: bold;
+}
+
+.bid-details button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  display: block;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.bid-details button:hover {
+  background-color: #0056b3;
+}
+.bid-set {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 15px;
+  margin-bottom: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.bid-set h3 {
+  color: #333;
+  margin-bottom: 15px;
+  text-align: center;
+}
+  
+    

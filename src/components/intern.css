@@ -124,6 +124,130 @@
     font-size: 20px;
     margin-bottom: 15px;
   }
-  
-  /* Add more styling as needed */
+  /* Add these styles to your CSS file or style tag */
+
+.job-list-container {
+  background-color: #f5f5f5;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.job-list-header {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.job-list {
+  list-style: none;
+  padding: 0;
+}
+
+.job-item {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-bottom: 15px;
+  padding: 15px;
+}
+
+.job-property {
+  font-weight: bold;
+  color: #007bff;
+}
+/* Add these styles to your CSS file or style tag */
+
+.duration-banner {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+.duration-banner::after {
+  content: ' Duration';
+  background-color: #ff5050; /* Red color */
+  color: #fff;
+  padding: 5px;
+
+  border-radius: 4px;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+
+.company-info {
+  display: flex;
+  align-items: center;
+}
+
+.company-name {
+  font-size: 24px; 
+  font-weight: bold; 
+  margin-right: 10px; 
+}
+/* Red Bid Form */
+.bid-form-red {
+  background-color: #ffcccc; /* Light red background */
+  border: 2px solid #ff6666; /* Dark red border */
+  color: #ff0000; /* Red text color */
+}
+
+/* Blue Bid Form */
+.bid-form-blue {
+  background-color: #cce5ff; /* Light blue background */
+  border: 2px solid #6699ff; /* Dark blue border */
+  color: #0066cc; /* Blue text color */
+}
+
+/* Green Bid Form */
+.bid-form-green {
+  background-color: #ccffcc; /* Light green background */
+  border: 2px solid #66ff66; /* Dark green border */
+  color: #00cc00; /* Green text color */
+}
+
+/* Style the duration label */
+.duration-label {
+  display: block;
+  margin-bottom: 8px;
+}
+
+/* Style the select container */
+.duration-select-container {
+  position: relative;
+}
+
+/* Style the select */
+.duration-select-container select {
+  padding: 8px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 28%; /* Make the select fill the container width */
+}
+
+/* Style the dropdown arrow */
+.duration-select-container select::after {
+  content: '\25BC'; 
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+}
+
+/* Style the options in the dropdown */
+.duration-select-container select option {
+  background-color: #fff;
+  color: #333;
+}
+
+/* Style the select when it's focused */
+.duration-select-container select:focus {
+  outline: none;
+  border-color: #007bff; /* Change the color as needed */
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Change the color and intensity as needed */
+}
+
   
