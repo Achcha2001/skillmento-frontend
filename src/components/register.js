@@ -195,14 +195,14 @@ const Register = () => {
           className={selectedTab === 'interns' ? 'active' : ''}
           onClick={() => handleTabChange('interns')}
         >
-          Intern
+          Intern/freelancer
         </button>
-        <button
+        {/* <button
           className={selectedTab === 'freelancers' ? 'active' : ''}
           onClick={() => handleTabChange('freelancers')}
         >
           Freelancer
-        </button>
+        </button> */}
         <button
           className={selectedTab === 'employers' ? 'active' : ''}
           onClick={() => handleTabChange('employers')}
