@@ -40,7 +40,7 @@ const Login = () => {
 if (data.userType === 'employer') {
   navigate('/employer');
 } else {
-  navigate('intern');
+  navigate('/intern');
 }
 
       } else {
