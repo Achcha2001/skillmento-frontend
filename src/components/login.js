@@ -37,7 +37,12 @@ const Login = () => {
         window.alert(`Login successful. User Type: ${data.userType}`);
 
         // Redirect to intern or employer portal based on userType
-        navigate(data.userType === 'employer' ? '/intern' : '/employer');
+if (data.userType === 'employer') {
+  navigate('/employer');
+} else {
+  navigate('intern');
+}
+
       } else {
         console.error('Login failed:', data.message);
         window.alert(`Login failed: ${data.message}`);
