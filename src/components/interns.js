@@ -28,39 +28,27 @@ const [selectedJobForBid, setSelectedJobForBid] = useState(null);
 
 const [loggedInUserName, setLoggedInUserName] = useState(null);
   useEffect(() => {
-    const fetchUserData = async () => {
-      try {
-        const response = await fetch(`${baseURL}/fetchUserData`);
-        const data = await response.json();
-
-        if (response.ok) {
-          setLoggedInUser(data);
-        } else {
-          console.error('Failed to fetch user data');
-        }
-      } catch (error) {
-        console.error('Error during fetchUserData:', error);
-      }
-    };
+  
     
 
  
     const fetchLoggedInUserName = async () => {
       try {
-        const response = await fetch(`${baseURL}/getLoggedInUserName`, {
-          
-        });
-
-        const data = await response.json();
-
+        // Update the fetch request without including the Authorization header
+        const response = await fetch(`${baseURL}/getLoggedInUserName`);
+        
         if (response.ok) {
-          setLoggedInUserName(data.userName);
+          const data = await response.json();
+          console.log('Logged-in user name:', data.userName);
+          // Set the logged-in user name to state or take any other necessary action
         } else {
-          console.error('Failed to fetch logged-in user name');
+          console.error('Failed to fetch logged-in user name:', response.status);
+          // Handle the error as needed
         }
       } catch (error) {
         console.error('Error during fetchLoggedInUserName:', error);
       }
+    
     };
 
     
@@ -95,7 +83,7 @@ const [loggedInUserName, setLoggedInUserName] = useState(null);
       }
     };
 
-    fetchUserData();
+  
     fetchEmployers();
     fetchPostedJobs();
     fetchLoggedInUserName();
@@ -417,9 +405,10 @@ const [loggedInUserName, setLoggedInUserName] = useState(null);
         <div className="container d-flex align-items-center flex-column">
           <img className="masthead-avatar mb-5" src="../images/logo-no-background.png" alt="..." />
           <h3 className=" text-uppercase mb-0">
-            Welcome, {loggedInUser ? loggedInUser.name : ''}!
+          Welcome, {loggedInUserName ? loggedInUserName : 'Loading...'}!
             <p>To your intern portal. Here are some things you can do:</p>
           </h3>
+          
           <div className="divider-custom divider-light">
             <div className="divider-custom-line" />
             <div className="divider-custom-icon"><i className="fas fa-star" /></div>
