@@ -26,7 +26,7 @@ const [contactNumber, setContactNumber] = useState('');
 const [showBidForm, setShowBidForm] = useState(false);
 const [selectedJobForBid, setSelectedJobForBid] = useState(null);
 
-
+const [loggedInUserName, setLoggedInUserName] = useState(null);
   useEffect(() => {
     const fetchUserData = async () => {
       try {
@@ -42,6 +42,28 @@ const [selectedJobForBid, setSelectedJobForBid] = useState(null);
         console.error('Error during fetchUserData:', error);
       }
     };
+    
+
+ 
+    const fetchLoggedInUserName = async () => {
+      try {
+        const response = await fetch(`${baseURL}/getLoggedInUserName`, {
+          
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+          setLoggedInUserName(data.userName);
+        } else {
+          console.error('Failed to fetch logged-in user name');
+        }
+      } catch (error) {
+        console.error('Error during fetchLoggedInUserName:', error);
+      }
+    };
+
+    
 
     const fetchPostedJobs = async () => {
       try {
@@ -76,6 +98,7 @@ const [selectedJobForBid, setSelectedJobForBid] = useState(null);
     fetchUserData();
     fetchEmployers();
     fetchPostedJobs();
+    fetchLoggedInUserName();
   }, []);
 
   const handleFileUpload = (event) => {
