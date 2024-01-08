@@ -15,6 +15,8 @@ import Intern from './components/interns';
 import CVIdeas from './components/cvideas';
 import Employer from './components/employer';
 import JobPage from './components/jobs';
+import AdminPortal from './components/admin';
+
 
 function App() {
   return (
@@ -31,6 +33,7 @@ function App() {
           <Route path='/cvideas' element={<CVIdeas/>}/>
           <Route path='/employer' element={<Employer/>}/>
           <Route path='/jobs' element={<JobPage/>}/>
+          <Route path='/adminportal' element={<AdminPortal/>}/>
           
 <Route path='/intern' element={<Intern/>}/>
         </Routes>

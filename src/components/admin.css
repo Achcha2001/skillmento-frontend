@@ -1,0 +1,27 @@
+/* Add this CSS to your existing styles or create a new stylesheet */
+
+.admin-container {
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .button-row {
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  .admin-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .admin-button:hover {
+    background-color: #2980b9;
+  }
+  

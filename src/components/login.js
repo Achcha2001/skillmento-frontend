@@ -13,10 +13,14 @@ const Login = () => {
     e.preventDefault();
 
     try {
-      
-      const isEmployer = true; 
-
+      const isEmployer = true;
       const userType = isEmployer ? 'employer' : 'intern';
+
+      // Check if the credentials are for admin
+      if (email === 'admin@gmail.com' && password === 'admin') {
+        navigate('/adminportal'); // Redirect to admin portal
+        return;
+      }
 
       const response = await fetch(`${baseURL}/login`, {
         method: 'POST',
@@ -37,12 +41,11 @@ const Login = () => {
         window.alert(`Login successful. User Type: ${data.userType}`);
 
         // Redirect to intern or employer portal based on userType
-if (data.userType === 'employer') {
-  navigate('/employer');
-} else {
-  navigate('/intern');
-}
-
+        if (data.userType === 'employer') {
+          navigate('/employer');
+        } else {
+          navigate('/intern');
+        }
       } else {
         console.error('Login failed:', data.message);
         window.alert(`Login failed: ${data.message}`);
