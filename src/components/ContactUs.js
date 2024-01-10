@@ -33,7 +33,7 @@ const ContactUs = () => {
         // Clear success message after a few seconds
         setTimeout(() => {
           setSuccessMessage('');
-        }, );
+        }, 5000);
       } else {
         console.error('Failed to send message');
         setErrorMessage('Failed to send message');
