@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+
 import './Contact-Us.css';
 import baseURL from './baseurl';
+
 
 const ContactUs = () => {
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -18,22 +20,24 @@ const ContactUs = () => {
     };
 
     try {
-      const response = await axios.post(`${baseURL}/contact-us`, contactData, {
+      const response = await fetch(`${baseURL}/contactus`, {
+        method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
+        body: JSON.stringify(contactData),
       });
 
-      if (response.status === 200) {
+      if (response.ok) {
         console.log('Message sent successfully');
         setSuccessMessage('Message sent successfully');
-        // Clear the form fields
+        window.alert('Message sent successfully');
         setEmail('');
         setMessage('');
-        // Clear success message after a few seconds
+      
         setTimeout(() => {
           setSuccessMessage('');
-        }, 5000);
+        }, 3000);
       } else {
         console.error('Failed to send message');
         setErrorMessage('Failed to send message');
