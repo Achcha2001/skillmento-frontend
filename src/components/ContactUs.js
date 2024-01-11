@@ -25,8 +25,14 @@ const ContactUs = () => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(contactData),
+        body: JSON.stringify({
+          email,
+          message,
+        }),
       });
+      
+    
+      
 
       if (response.ok) {
         console.log('Message sent successfully');
