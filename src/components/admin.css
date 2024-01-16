@@ -24,4 +24,92 @@
   .admin-button:hover {
     background-color: #2980b9;
   }
-  
+  .messages-container,
+.employers-container,
+.interns-container {
+  margin-top: 20px;
+  padding: 20px;
+  border: 1px solid #3498db;
+  display: none;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.messages-container h3,
+.employers-container h3,
+.interns-container h3 {
+  margin-bottom: 10px;
+  color: #3498db;
+}
+
+.messages-container ul,
+.employers-container ul,
+.interns-container ul {
+  list-style: none;
+  padding: 0;
+}
+
+.messages-container li,
+.employers-container li,
+.interns-container li {
+  margin-bottom: 10px;
+  color: #333;
+}
+
+/* Show the active container */
+.messages-container[style*="block"],
+.employers-container[style*="block"],
+.interns-container[style*="block"] {
+  display: block;
+}
+/* Style for list items in messages container */
+.messages-container li {
+  background-color: #ecf0f1;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.messages-container li strong {
+  color: #3498db;
+}
+
+.messages-container li span {
+  color: #333;
+  margin-left: 10px;
+}
+
+/* Style for list items in employers container */
+.employers-container li {
+  background-color: #ecf0f1;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.employers-container li strong {
+  color: #3498db;
+}
+
+.employers-container li span {
+  color: #333;
+  margin-left: 10px;
+}
+
+/* Style for list items in interns container */
+.interns-container li {
+  background-color: #ecf0f1;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.interns-container li strong {
+  color: #3498db;
+}
+
+.interns-container li span {
+  color: #333;
+  margin-left: 10px;
+}
