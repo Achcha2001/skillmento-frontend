@@ -18,6 +18,7 @@ const Employer = () => {
 
   // Add state variable to store the bid details
   const [selectedBidDetails, setSelectedBidDetails] = useState(null);
+  const [mockInterviews, setMockInterviews] = useState([]);
 
   const [isPostJobClicked, setPostJobClicked] = useState(false);
   const [jobForm, setJobForm] = useState({
@@ -30,8 +31,7 @@ const Employer = () => {
     jobPosition: '',
     qualifications: '',
   });
-  const [availableSlots, setAvailableSlots] = useState([]);
-  const [calendarEvents, setCalendarEvents] = useState([]);
+ 
   
   const fetchUserData = async () => {
     try {
@@ -47,6 +47,8 @@ const Employer = () => {
       console.error('Error during fetchUserData:', error);
     }
   };
+
+
 
   const fetchPostedJobs = async () => {
     try {
@@ -83,68 +85,54 @@ const Employer = () => {
     }
   };
 
+  const fetchMockInterviews = async () => {
+    try {
+      const response = await fetch(`${baseURL}/fetchMockInterviews`);
+
+      if (response.status === 200) {
+        const mockInterviewsData = await response.json();
+        setMockInterviews(mockInterviewsData);
+      } else {
+        console.error(`Failed to fetch mock interviews. Status: ${response.status}`);
+      }
+    } catch (error) {
+      console.error('Error during mock interview fetching:', error);
+    }
+  };
+
   useEffect(() => {
     fetchUserData();
     fetchPostedJobs();
-    fetchAvailableSlots();
+    fetchMockInterviews();
+    
    
   }, []);
+  
 
-  const fetchAvailableSlots = async () => {
-    try {
-      const response = await fetch(`${baseURL}/fetchAvailableSlots`);
-      const data = await response.json();
-
-      if (response.ok) {
-        setAvailableSlots(data);
-        updateCalendarEvents(data);
-      } else {
-        console.error('Failed to fetch available slots');
-      }
-    } catch (error) {
-      console.error('Error during fetchAvailableSlots:', error);
-    }
-  };
 
   useEffect(() => {
     fetchUserData();
     fetchPostedJobs();
-    fetchAvailableSlots();
+    
   }, []);
 
-  const updateCalendarEvents = (slots) => {
-    const events = slots.map((slot) => ({
-      start: new Date(slot),
-      end: moment(slot).add(1, 'hour').toDate(),
-      title: 'Free Slot',
-    }));
+  const [acceptedInterviews, setAcceptedInterviews] = useState([]);
+  const [declinedInterviews, setDeclinedInterviews] = useState([]);
 
-    setCalendarEvents(events);
+  const handleAcceptInterview = (interviewId) => {
+    // Find the interview in the mockInterviews array
+    const acceptedInterview = mockInterviews.find((interview) => interview.id === interviewId);
+
+    // Update the acceptedInterviews state
+    setAcceptedInterviews((prevAcceptedInterviews) => [...prevAcceptedInterviews, acceptedInterview]);
   };
 
-  const updateSelectedSlot = async (selectedSlot) => {
-    try {
-      const response = await fetch(`${baseURL}/updateSlot`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          selectedSlot,
-        }),
-      });
+  const handleDeclineInterview = (interviewId) => {
+    // Find the interview in the mockInterviews array
+    const declinedInterview = mockInterviews.find((interview) => interview.id === interviewId);
 
-      const data = await response.json();
-
-      if (response.ok) {
-        console.log('Slot updated successfully:', data);
-        fetchAvailableSlots();
-      } else {
-        console.error('Failed to update slot:', data.message);
-      }
-    } catch (error) {
-      console.error('Error during slot update:', error.message);
-    }
+    // Update the declinedInterviews state
+    setDeclinedInterviews((prevDeclinedInterviews) => [...prevDeclinedInterviews, declinedInterview]);
   };
 
   const handlePostJob = async (e) => {
@@ -201,6 +189,7 @@ const Employer = () => {
       console.error('Error during fetching bid details:', error.message);
     }
   };
+ 
 
   const renderTabContent = () => {
     switch (activeTab) {
@@ -270,28 +259,30 @@ const Employer = () => {
         
       case 'reviewMockInterviews':
         return (
-          <div>
+          <div className="review-mock-interviews-container">
             <h3>Review Mock Interviews</h3>
-            <p>Update your available slots:</p>
-            <Calendar
-              localizer={localizer}
-              events={calendarEvents}
-              startAccessor="start"
-              endAccessor="end"
-              selectable
-              onSelectSlot={updateSelectedSlot}
-              style={{ height: 500 }}
-            />
+            {/* Display mock interview details here */}
+            {mockInterviews.map((interview) => (
+              <div key={interview.id} className="interview-set">
+                <div className="interview-details">
+                  <p>Interview Date: {interview.date}</p>
+                  <p>Interview Time: {interview.time}</p>
+                  <p>Job Position: {interview.jobPosition}</p>
+                </div>
+                <div className="button-container">
+                  <button className="accept-button" onClick={() => handleAcceptInterview(interview.id)}>
+                    Accept
+                  </button>
+                  <button className="decline-button" onClick={() => handleDeclineInterview(interview.id)}>
+                    Decline
+                  </button>
+                </div>
+              </div>
+            ))}
           </div>
         );
+      
      
-      case 'chat':
-        return (
-          <div>
-            <h3>Chat</h3>
-            <p>Start chatting here.</p>
-          </div>
-        );
 
       case 'postJobs':
         return (

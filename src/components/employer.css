@@ -207,5 +207,38 @@
   margin-bottom: 15px;
   text-align: center;
 }
-  
+  /* Add your existing styles here */
+
+/* Style for the "Review Mock Interviews" section */
+.review-mock-interviews-container {
+  margin-top: 20px;
+}
+
+/* Style for each interview set */
+.interview-set {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+/* Style for individual interview details */
+.interview-details {
+  margin-bottom: 10px;
+}
+
+/* Style for the accept and decline buttons */
+.button-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.accept-button,
+.decline-button {
+  padding: 8px 12px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* Additional styling if needed */
+
     

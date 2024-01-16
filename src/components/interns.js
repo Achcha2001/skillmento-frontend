@@ -27,10 +27,26 @@ const [showBidForm, setShowBidForm] = useState(false);
 const [selectedJobForBid, setSelectedJobForBid] = useState(null);
 
 const [loggedInUserName, setLoggedInUserName] = useState(null);
+const [mockInterviewDetails, setMockInterviewDetails] = useState([]);
+
   useEffect(() => {
   
     
-
+    const fetchMockInterviewDetails = async () => {
+      try {
+        const response = await fetch(`${baseURL}/fetchMockInterviews`);
+        const data = await response.json();
+    
+        if (response.ok) {
+          setMockInterviewDetails(data);
+        } else {
+          console.error('Failed to fetch mock interview details');
+        }
+      } catch (error) {
+        console.error('Error during fetchMockInterviewDetails:', error);
+      }
+    };
+    
  
     const fetchLoggedInUserName = async () => {
       try {
@@ -51,6 +67,9 @@ const [loggedInUserName, setLoggedInUserName] = useState(null);
     
     };
 
+    const renderMockInterviewDetails = () => {
+     
+    };
     
 
     const fetchPostedJobs = async () => {
@@ -87,6 +106,7 @@ const [loggedInUserName, setLoggedInUserName] = useState(null);
     fetchEmployers();
     fetchPostedJobs();
     fetchLoggedInUserName();
+    fetchMockInterviewDetails();
   }, []);
 
   const handleFileUpload = (event) => {
@@ -132,12 +152,20 @@ const [loggedInUserName, setLoggedInUserName] = useState(null);
 
   const renderMockInterviewsTab = () => {
     return (
-      <div>
-        <h3>Your Mock Interview Dates</h3>
-        <p>View your mock interview dates here.</p>
+      <div className="mock-interviews-tab">
+        {mockInterviewDetails.map((interview) => (
+          <div className="mock-interview-card" key={interview.id}>
+            <h3>Mock Interview Details</h3>
+            <p>Date: {interview.date}</p>
+            <p>Time: {interview.time}</p>
+            <p>Job Position: {interview.jobPosition}</p>
+          </div>
+        ))}
       </div>
     );
   };
+  
+  
 
   const renderChatTab = () => {
     return (
