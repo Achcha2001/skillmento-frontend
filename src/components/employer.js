@@ -173,20 +173,46 @@ const [declinedBids, setDeclinedBids] = useState([]);
       });
     }
   };
-  const handleAcceptBid = (bidId) => {
-    const acceptedBid = selectedBidDetails.find((bid) => bid.id === bidId);
-    setAcceptedBids((prevAcceptedBids) => [...prevAcceptedBids, acceptedBid]);
+  const handleAcceptBid = async (bidId) => {
+    try {
+      // Assuming you have an API endpoint to update the bid status
+      const response = await fetch(`${baseURL}/acceptBid/${bidId}`, {
+        method: 'PUT',
+      });
   
-    // Call a function to send a message to the intern portal
-    sendAcceptanceMessageToIntern(bidId);
+      const data = await response.json();
+  
+      if (response.ok) {
+        console.log('Bid accepted successfully:', data);
+        // Update the acceptedBids state
+        setAcceptedBids((prevAcceptedBids) => [...prevAcceptedBids, data]);
+      } else {
+        console.error('Failed to accept bid:', data.message);
+      }
+    } catch (error) {
+      console.error('Error during accepting bid:', error.message);
+    }
   };
   
-  // Function to handle declining a bid
-  const handleDeclineBid = (bidId) => {
-    const declinedBid = selectedBidDetails.find((bid) => bid.id === bidId);
-    setDeclinedBids((prevDeclinedBids) => [...prevDeclinedBids, declinedBid]);
+  const handleDeclineBid = async (bidId) => {
+    try {
+      // Assuming you have an API endpoint to update the bid status
+      const response = await fetch(`${baseURL}/declineBid/${bidId}`, {
+        method: 'PUT',
+      });
   
-    // You can perform additional actions for declining if needed
+      const data = await response.json();
+  
+      if (response.ok) {
+        console.log('Bid declined successfully:', data);
+        // Update the declinedBids state
+        setDeclinedBids((prevDeclinedBids) => [...prevDeclinedBids, data]);
+      } else {
+        console.error('Failed to decline bid:', data.message);
+      }
+    } catch (error) {
+      console.error('Error during declining bid:', error.message);
+    }
   };
   
   // Function to send an acceptance message to the intern portal
@@ -262,27 +288,37 @@ const [declinedBids, setDeclinedBids] = useState([]);
                   <div className="bid-details-item">
                     <p className="bid-details-label">Company:</p>
                     <p>{bid.company}</p>
-        
+          
                     <p className="bid-details-label">Job Position:</p>
                     <p>{bid.jobPosition}</p>
-        
+          
                     <p className="bid-details-label">Bid Amount:</p>
                     <p>{bid.bidAmount}</p>
-        
+          
                     <p className="bid-details-label">Maximum Duration:</p>
                     <p>{bid.maximumDuration} days</p>
-        
+          
                     <p className="bid-details-label">Contact Number:</p>
                     <p>{bid.contactNumber}</p>
-        
+          
                     {/* Add Accept and Decline buttons */}
                     <div className="button-container">
-                      <button className="accept-button" onClick={() => handleAcceptBid(bid.id)}>
+                      <button
+                        className="accept-button"
+                        onClick={() => handleAcceptBid(bid.id)}
+                        disabled={bid.status === 'Accepted' || bid.status === 'Declined'}
+                      >
                         Accept
                       </button>
-                      <button className="decline-button" onClick={() => handleDeclineBid(bid.id)}>
+                      <button
+                        className="decline-button"
+                        onClick={() => handleDeclineBid(bid.id)}
+                        disabled={bid.status === 'Accepted' || bid.status === 'Declined'}
+                      >
                         Decline
                       </button>
+                      {bid.status === 'Accepted' && <p>Accepted</p>}
+                      {bid.status === 'Declined' && <p>Declined</p>}
                     </div>
                   </div>
                 </div>
