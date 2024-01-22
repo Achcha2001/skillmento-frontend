@@ -373,35 +373,42 @@ const [mockInterviewDetails, setMockInterviewDetails] = useState([]);
   const renderJobListTab = () => {
     return (
       <div className="job-list-container">
-  <h3 className="job-list-header">Job List</h3>
-  <ul className="job-list">
-    {postedJobs.map((job) => (
-      <li key={job.id} className="job-item">
-        <div className="company-info">
-          <span className="company-name">{job.company}</span>
-        </div>
-        <div className="job-details">
-          <span className="job-property">Position:</span> {job.jobPosition}
-          <br />
-          <span className="job-property1">Category:</span> {job.jobCategory}
-          <br />
-          <span className="job-property2 duration-banner">Duration:</span> {job.duration}
-          <br />
-          <span className="job-property3">Qualifications:</span> {job.qualifications}
-          <br />
-          <button className="btn1 btn-primary2" onClick={() => handleBidForJob(job)}>
-            Bid for the Job
-          </button>
-        </div>
-      </li>
-
-    ))}
-  </ul>
-  {showBidForm && selectedJobForBid && renderBidForm(selectedJobForBid)}
-</div>
-
+        <h3 className="job-list-header">Job List</h3>
+        <ul className="job-list">
+          {postedJobs.map((job) => (
+            <li key={job.id} className="job-item">
+              <div className="company-info">
+                <span className="company-name">{job.company}</span>
+              </div>
+              <div className="job-details">
+                <span className="job-property">Position:</span> {job.jobPosition}
+                <br />
+                <span className="job-property1">Category:</span> {job.jobCategory}
+                <br />
+                <span className="job-property2 duration-banner">Duration:</span> {job.duration}
+                <br />
+                <span className="job-property3">Qualifications:</span> {job.qualifications}
+                <br />
+  
+                {/* Display Accepted or Declined message based on job status */}
+                {job.status === 'Accepted' && <p className="accepted-message">Accepted</p>}
+                {job.status === 'Declined' && <p className="declined-message">Declined</p>}
+  
+                {/* Display Bid button only if the job status is not Accepted or Declined */}
+                {job.status !== 'Accepted' && job.status !== 'Declined' && (
+                  <button className="btn1 btn-primary2" onClick={() => handleBidForJob(job)}>
+                    Bid for the Job
+                  </button>
+                )}
+              </div>
+            </li>
+          ))}
+        </ul>
+        {showBidForm && selectedJobForBid && renderBidForm(selectedJobForBid)}
+      </div>
     );
   };
+  
 
   const renderTabContent = () => {
     switch (activeTab) {
