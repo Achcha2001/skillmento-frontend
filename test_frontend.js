@@ -91,30 +91,41 @@
 
 // // Run the test function
 // runTest();
+const { Builder, By, until } = require('selenium-webdriver');
 
-
-async function testAdminPortal() {
+async function testReadMessagesButton() {
   const driver = await new Builder().forBrowser('chrome').build();
 
   try {
-    await driver.get('http://localhost:3000/adminportal'); // Update with the correct URL
+    // Navigate to the admin portal URL
+    await driver.get('http://localhost:3000/adminportal');
 
-    const readMessagesButton = await driver.wait(until.elementLocated(By.css('.admin-button=Read Messages')), 20000);
+    // Locate and click the "Read Messages" button
+    const readMessagesButton = await driver.wait(until.elementLocated(By.css('.admin-button')), 20000);
     await Promise.all([
       driver.wait(until.elementIsVisible(readMessagesButton), 20000),
       driver.wait(until.elementIsEnabled(readMessagesButton), 20000),
     ]);
-
     await readMessagesButton.click();
 
-    const contactMessagesHeader = await driver.wait(until.elementLocated(By.css('h3=Contact Messages')), 20000);
-    await driver.wait(until.elementIsVisible(contactMessagesHeader), 20000);
-
-    console.log('Test for Admin Portal passed successfully!');
+    // Verify that the messages container is displayed
+    const messagesContainer = await driver.wait(until.elementLocated(By.css('.messages-container')), 20000);
+    const messages = await messagesContainer.findElements(By.css('ul li'));
+    
+    if (messages.length > 0) {
+      console.log('Test for "Read Messages" button passed successfully!');
+    } else {
+      console.error('No messages found. Test failed.');
+    }
   } catch (error) {
-    console.error('Test failed:', error);
+    console.error('Test for "Read Messages" button failed:', error);
   } finally {
+    // Close the browser window
     await driver.quit();
   }
 }
-runTest();
+
+// Run the test for the "Read Messages" button
+testReadMessagesButton();
+
+

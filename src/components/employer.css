@@ -239,6 +239,23 @@
   cursor: pointer;
 }
 
-/* Additional styling if needed */
+.button-container {
+  display: flex;
+  gap: 10px;
+}
+
+.accept-button, .decline-button {
+  padding: 8px 16px;
+  background-color: #4CAF50; /* Green for accept */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.decline-button {
+  background-color: #f44336; /* Red for decline */
+}
+
 
     
