@@ -5,6 +5,7 @@ import { Calendar, momentLocalizer } from 'react-big-calendar';
 import moment from 'moment';
 import baseURL from './baseurl';
 
+
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 
 const localizer = momentLocalizer(moment);
@@ -15,6 +16,8 @@ const Employer = () => {
   const [postedJobs, setPostedJobs] = useState([]);
   const [selectedJobForBids, setSelectedJobForBids] = useState(null);
   const [showBidDetails, setShowBidDetails] = useState(false);
+  const [acceptedBids, setAcceptedBids] = useState([]);
+const [declinedBids, setDeclinedBids] = useState([]);
 
   // Add state variable to store the bid details
   const [selectedBidDetails, setSelectedBidDetails] = useState(null);
@@ -170,6 +173,27 @@ const Employer = () => {
       });
     }
   };
+  const handleAcceptBid = (bidId) => {
+    const acceptedBid = selectedBidDetails.find((bid) => bid.id === bidId);
+    setAcceptedBids((prevAcceptedBids) => [...prevAcceptedBids, acceptedBid]);
+  
+    // Call a function to send a message to the intern portal
+    sendAcceptanceMessageToIntern(bidId);
+  };
+  
+  // Function to handle declining a bid
+  const handleDeclineBid = (bidId) => {
+    const declinedBid = selectedBidDetails.find((bid) => bid.id === bidId);
+    setDeclinedBids((prevDeclinedBids) => [...prevDeclinedBids, declinedBid]);
+  
+    // You can perform additional actions for declining if needed
+  };
+  
+  // Function to send an acceptance message to the intern portal
+  const sendAcceptanceMessageToIntern = (bidId) => {
+    // Implement logic to send a message to the intern portal using an API or other communication method
+    console.log(`Accepted bid with ID ${bidId}. Message sent to intern portal.`);
+  };
 
   const handleViewBids = async (jobId) => {
     try {
@@ -230,33 +254,42 @@ const Employer = () => {
           </div>
         );
         case 'viewBids':
-      return (
-        <div className="bid-details">
-          <h3>Bid Details</h3>
-          {selectedBidDetails && selectedBidDetails.map((bid) => (
-           <div key={bid.id} className="bid-set">
-            <div className="bid-details-item">
-           <p className="bid-details-label">Company:</p>
-           <p>{bid.company}</p>
-     
-           <p className="bid-details-label">Job Position:</p>
-           <p>{bid.jobPosition}</p>
-     
-           <p className="bid-details-label">Bid Amount:</p>
-           <p>{bid.bidAmount}</p>
-     
-           <p className="bid-details-label">Maximum Duration:</p>
-           <p>{bid.maximumDuration} days</p>
-     
-           <p className="bid-details-label">Contact Number:</p>
-           <p>{bid.contactNumber}</p>
-           </div>
-         </div>
-          ))}
-          <button onClick={() => setShowBidDetails(false)}>Close</button>
-        </div>
-      );
+          return (
+            <div className="bid-details">
+              <h3>Bid Details</h3>
+              {selectedBidDetails && selectedBidDetails.map((bid) => (
+                <div key={bid.id} className="bid-set">
+                  <div className="bid-details-item">
+                    <p className="bid-details-label">Company:</p>
+                    <p>{bid.company}</p>
         
+                    <p className="bid-details-label">Job Position:</p>
+                    <p>{bid.jobPosition}</p>
+        
+                    <p className="bid-details-label">Bid Amount:</p>
+                    <p>{bid.bidAmount}</p>
+        
+                    <p className="bid-details-label">Maximum Duration:</p>
+                    <p>{bid.maximumDuration} days</p>
+        
+                    <p className="bid-details-label">Contact Number:</p>
+                    <p>{bid.contactNumber}</p>
+        
+                    {/* Add Accept and Decline buttons */}
+                    <div className="button-container">
+                      <button className="accept-button" onClick={() => handleAcceptBid(bid.id)}>
+                        Accept
+                      </button>
+                      <button className="decline-button" onClick={() => handleDeclineBid(bid.id)}>
+                        Decline
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              ))}
+              <button onClick={() => setShowBidDetails(false)}>Close</button>
+            </div>
+          );
       case 'reviewMockInterviews':
         return (
           <div className="review-mock-interviews-container">
