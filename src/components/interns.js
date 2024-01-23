@@ -29,6 +29,7 @@ const [selectedJobForBid, setSelectedJobForBid] = useState(null);
 const [loggedInUserName, setLoggedInUserName] = useState(null);
 const [mockInterviewDetails, setMockInterviewDetails] = useState([]);
 
+
   useEffect(() => {
   
     
@@ -46,8 +47,29 @@ const [mockInterviewDetails, setMockInterviewDetails] = useState([]);
         console.error('Error during fetchMockInterviewDetails:', error);
       }
     };
+    const updatePostedJobsWithStatus = (jobStatusData) => {
+      // Your logic to update 'postedJobs' with the latest status
+      // For example:
+      setPostedJobs((prevJobs) =>
+        prevJobs.map((job) =>
+          job.id === jobStatusData.id ? { ...job, status: jobStatusData.status } : job
+        )
+      );
+    };
+    const fetchJobStatus = async () => {
+      try {
+        // Call the backend route to fetch the latest job status
+        const response = await fetch(`${baseURL}/fetchJobStatus`);
+        const jobStatusData = await response.json();
     
- 
+        // Update the state or perform any necessary actions with the fetched data
+        // For example, update the 'postedJobs' state with the latest status
+        updatePostedJobsWithStatus(jobStatusData);
+      } catch (error) {
+        console.error('Error fetching job status:', error);
+      }
+    };
+    
     const fetchLoggedInUserName = async () => {
       try {
         // Update the fetch request without including the Authorization header
@@ -107,6 +129,7 @@ const [mockInterviewDetails, setMockInterviewDetails] = useState([]);
     fetchPostedJobs();
     fetchLoggedInUserName();
     fetchMockInterviewDetails();
+    fetchJobStatus();
   }, []);
 
   const handleFileUpload = (event) => {
@@ -198,6 +221,7 @@ const [mockInterviewDetails, setMockInterviewDetails] = useState([]);
       </div>
     );
   };
+
 
   const renderMockInterviewBooking = () => {
     return (
