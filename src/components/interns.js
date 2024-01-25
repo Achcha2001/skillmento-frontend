@@ -29,7 +29,7 @@ const [selectedJobForBid, setSelectedJobForBid] = useState(null);
 const [loggedInUserName, setLoggedInUserName] = useState(null);
 const [mockInterviewDetails, setMockInterviewDetails] = useState([]);
 
-
+const [jobStatus, setJobStatus] = useState([]);
   useEffect(() => {
   
     
@@ -61,10 +61,10 @@ const [mockInterviewDetails, setMockInterviewDetails] = useState([]);
         // Call the backend route to fetch the latest job status
         const response = await fetch(`${baseURL}/fetchJobStatus`);
         const jobStatusData = await response.json();
-    
+  
         // Update the state or perform any necessary actions with the fetched data
         // For example, update the 'postedJobs' state with the latest status
-        updatePostedJobsWithStatus(jobStatusData);
+        setJobStatus(jobStatusData);
       } catch (error) {
         console.error('Error fetching job status:', error);
       }
