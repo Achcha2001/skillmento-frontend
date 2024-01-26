@@ -415,11 +415,11 @@ const [jobStatus, setJobStatus] = useState([]);
                 <br />
   
                 {/* Display Accepted or Declined message based on job status */}
-                {job.status === 'Accepted' && <p className="accepted-message">Accepted</p>}
-                {job.status === 'Declined' && <p className="declined-message">Declined</p>}
+                {jobStatus.status === 'Accepted' && <p className="accepted-message">Accepted</p>}
+                {jobStatus.status === 'Declined' && <p className="declined-message">Declined</p>}
   
                 {/* Display Bid button only if the job status is not Accepted or Declined */}
-                {job.status !== 'Accepted' && job.status !== 'Declined' && (
+                {jobStatus.status !== 'Accepted' && job.status !== 'Declined' && (
                   <button className="btn1 btn-primary2" onClick={() => handleBidForJob(job)}>
                     Bid for the Job
                   </button>
