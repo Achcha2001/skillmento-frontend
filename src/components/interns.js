@@ -413,7 +413,7 @@ const [jobStatus, setJobStatus] = useState([]);
                 <br />
                 <span className="job-property3">Qualifications:</span> {job.qualifications}
                 <br />
-  
+                <span className="job-property3">status:</span> {jobStatus.status}
                 {/* Display Accepted or Declined message based on job status */}
                 {jobStatus.status === 'Accepted' && <p className="accepted-message">Accepted</p>}
                 {jobStatus.status === 'Declined' && <p className="declined-message">Declined</p>}
