@@ -59,7 +59,7 @@ const [jobStatus, setJobStatus] = useState([]);
     const fetchJobStatus = async () => {
       try {
         // Call the backend route to fetch the latest job status
-        const response = await fetch(`${baseURL}/fetchJobStatus`);
+        const response = await fetch(`${baseURL}/fetchJobStatus/:id`);
         const jobStatusData = await response.json();
   
         // Update the state or perform any necessary actions with the fetched data
