@@ -61,8 +61,7 @@ const [jobStatus, setJobStatus] = useState([]);
         const response = await fetch(`${baseURL}/fetchJobStatus/${jobId}`);
         const jobStatusData = await response.json();
     
-       
-        setJobStatus(jobStatusData);
+        updatePostedJobsWithStatus(jobStatusData);
       } catch (error) {
         console.error('Error fetching job status:', error);
       }
@@ -412,7 +411,7 @@ const [jobStatus, setJobStatus] = useState([]);
                 <br />
                 <span className="job-property3">Qualifications:</span> {job.qualifications}
                 <br />
-                <span className="job-property3">status:</span> {jobStatus.status}
+                <span className="job-property3">status:</span> {updatePostedJobsWithStatus.status}
                 {/* Display Accepted or Declined message based on job status */}
                 {jobStatus.status === 'Accepted' && <p className="accepted-message">Accepted</p>}
                 {jobStatus.status === 'Declined' && <p className="declined-message">Declined</p>}
