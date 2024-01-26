@@ -56,19 +56,18 @@ const [jobStatus, setJobStatus] = useState([]);
         )
       );
     };
-    const fetchJobStatus = async () => {
+    const fetchJobStatus = async (jobId) => {
       try {
-        // Call the backend route to fetch the latest job status
-        const response = await fetch(`${baseURL}/fetchJobStatus/:id`);
+        const response = await fetch(`${baseURL}/fetchJobStatus/${jobId}`);
         const jobStatusData = await response.json();
-  
-        // Update the state or perform any necessary actions with the fetched data
-        // For example, update the 'postedJobs' state with the latest status
+    
+       
         setJobStatus(jobStatusData);
       } catch (error) {
         console.error('Error fetching job status:', error);
       }
     };
+    
     
     const fetchLoggedInUserName = async () => {
       try {
