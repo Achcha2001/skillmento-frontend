@@ -16,6 +16,7 @@ import CVIdeas from './components/cvideas';
 import Employer from './components/employer';
 import JobPage from './components/jobs';
 import AdminPortal from './components/admin';
+import FindIntern from './components/FindIntern';
 
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/" element={<Home />} />
           <Route path='/register' element={<Register/>}/>
+          <Route path='/FindIntern' element={<FindIntern/>}/>
           <Route path='/contact' element={<ContactUs/>}/>
           <Route path='/about' element={<AboutUs/>}/>
           <Route path='/cvideas' element={<CVIdeas/>}/>
