@@ -48,31 +48,8 @@
     color: #555;
   }
   
-  .search-section form {
-    display: flex;
-    gap: 10px;
-  }
   
-  input[type="text"] {
-    width: 70%;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  
-  button[type="submit"] {
-    padding: 8px 15px;
-    background-color: #4caf50;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  button[type="submit"]:hover {
-    background-color: #45a049;
-  }
-  
+ 
   .featured-internships {
     margin-top: 20px;
   }
@@ -98,16 +75,4 @@
     color: #666;
   }
   
-  button {
-    padding: 8px 15px;
-    background-color: #3498db;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  button:hover {
-    background-color: #2980b9;
-  }
-  
+ 
