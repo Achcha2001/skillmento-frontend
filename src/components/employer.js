@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { Calendar, momentLocalizer } from 'react-big-calendar';
 import moment from 'moment';
 import baseURL from './baseurl';
-
+import { useSharedState } from './SharedStateContext';
 
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 
@@ -17,8 +17,10 @@ const Employer = () => {
   const [selectedJobForBids, setSelectedJobForBids] = useState(null);
   const [showBidDetails, setShowBidDetails] = useState(false);
   const [acceptedBids, setAcceptedBids] = useState([]);
-const [declinedBids, setDeclinedBids] = useState([]);
+  const { updateBidStatus } = useSharedState();
 
+const [declinedBids, setDeclinedBids] = useState([]);
+const { bidStatus } = useSharedState();
   // Add state variable to store the bid details
   const [selectedBidDetails, setSelectedBidDetails] = useState(null);
   const [mockInterviews, setMockInterviews] = useState([]);
@@ -184,7 +186,8 @@ const [declinedBids, setDeclinedBids] = useState([]);
   
       if (response.ok) {
         console.log('Bid accepted successfully:', data);
-        alert("Bid Accepted Successfully!,will contact you for the interview shortly");
+        alert("Bid Accepted Successfully!!");
+        updateBidStatus('Accepted');
         setAcceptedBids((prevAcceptedBids) => [...prevAcceptedBids, data]);
       } else {
         console.error('Failed to accept bid:', data.message);
