@@ -3,20 +3,41 @@
 .find-intern-container {
     max-width: 800px;
     margin: 0 auto;
-    padding: 20px;
+    padding-top: 50px;
+   padding-left: 20px;
+   padding-bottom: 20px;
+   padding-right: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  h2, h3 {
+    color: #333;
+  }
+  
+  p {
+    color: #666;
   }
   
   .tips-section {
     margin-top: 20px;
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
   }
   
   .tips-section h3 {
-    color: #333;
+    color: #555;
+  } .fi a{
+    color: white;
   }
   
   .tips-section ul {
     list-style-type: disc;
     padding-left: 20px;
+    color: #333;
   }
   
   .search-section {
@@ -24,7 +45,7 @@
   }
   
   .search-section h3 {
-    color: #333;
+    color: #555;
   }
   
   .search-section form {
@@ -32,19 +53,61 @@
     gap: 10px;
   }
   
+  input[type="text"] {
+    width: 70%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  button[type="submit"] {
+    padding: 8px 15px;
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #45a049;
+  }
+  
   .featured-internships {
     margin-top: 20px;
   }
   
   .featured-internships h3 {
-    color: #333;
+    color: #555;
   }
   
   .internship-card {
     border: 1px solid #ddd;
-    padding: 10px;
-    margin-bottom: 10px;
+    padding: 15px;
+    margin-bottom: 15px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
   }
   
-  /* Add more styling as needed */
+  .internship-card h4 {
+    color: #333;
+  }
+  
+  .internship-card p {
+    color: #666;
+  }
+  
+  button {
+    padding: 8px 15px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #2980b9;
+  }
   

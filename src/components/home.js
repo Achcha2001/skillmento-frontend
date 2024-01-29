@@ -23,7 +23,7 @@ function Home() {
           {/* Buttons */}
           <div className="button-container">
             <button className="btn1 btn-primary2">Hire a Freelancer</button>
-            <button className="btn1 btn-primary2"><a href="/FindIntern">Find an Intern</a></button>
+            <button className="btn1 btn-primary2"><a className="fi" href="/FindIntern">Find an Intern</a></button>
           </div>
         </div>
       </header>
