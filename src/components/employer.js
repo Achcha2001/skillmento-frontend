@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { Calendar, momentLocalizer } from 'react-big-calendar';
 import moment from 'moment';
 import baseURL from './baseurl';
-import { useSharedState } from './SharedStateContext';
+
 
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 
@@ -17,10 +17,10 @@ const Employer = () => {
   const [selectedJobForBids, setSelectedJobForBids] = useState(null);
   const [showBidDetails, setShowBidDetails] = useState(false);
   const [acceptedBids, setAcceptedBids] = useState([]);
-  const { updateBidStatus } = useSharedState();
+  
 
 const [declinedBids, setDeclinedBids] = useState([]);
-const { bidStatus } = useSharedState();
+
   // Add state variable to store the bid details
   const [selectedBidDetails, setSelectedBidDetails] = useState(null);
   const [mockInterviews, setMockInterviews] = useState([]);
@@ -186,8 +186,8 @@ const { bidStatus } = useSharedState();
   
       if (response.ok) {
         console.log('Bid accepted successfully:', data);
-        alert("Bid Accepted Successfully!!,Contact the candidate for the interview.");
-        updateBidStatus('Accepted');
+        alert("Bid Accepted Successfully!Contact the candidate for the interview.");
+        
         setAcceptedBids((prevAcceptedBids) => [...prevAcceptedBids, data]);
       } else {
         console.error('Failed to accept bid:', data.message);
@@ -223,7 +223,11 @@ const { bidStatus } = useSharedState();
     // Implement logic to send a message to the intern portal using an API or other communication method
     console.log(`Accepted bid with ID ${bidId}. Message sent to intern portal.`);
   };
-
+  const handleInterviewCheckboxChange = (bidId, isChecked) => {
+    // Implement the logic to handle the checkbox change
+    console.log(`Bid ${bidId} interview checkbox changed to ${isChecked}`);
+    // You can update the state or perform any other actions based on the checkbox state
+  };
   const handleViewBids = async (jobId) => {
     try {
       // Fetch bid details for the selected job
@@ -313,6 +317,10 @@ const { bidStatus } = useSharedState();
                       >
                         Accept
                       </button>
+                      <label>
+                <input type="checkbox" onChange={(e) => handleInterviewCheckboxChange(bid.id, e.target.checked)} />
+                Interview
+              </label>
                       <button
                         className="decline-button"
                         onClick={() => handleDeclineBid(bid.id)}
