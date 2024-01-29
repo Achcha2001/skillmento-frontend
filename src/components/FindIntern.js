@@ -25,21 +25,20 @@ const FindIntern = () => {
         {/* Example: */}
         <form>
           <input type="text" placeholder="Enter keywords..." />
-          <button type="submit">Search</button>
+          <button type="submit"><a className='fi' href='/login'>Search</a></button>
         </form>
       </div>
 
       <div className="featured-internships">
         <h3>Featured Internships</h3>
-        {/* Add cards or a list of featured internships */}
-        {/* Example: */}
+       
         <div className="internship-card">
           <h4>Software Development Intern</h4>
-          <p>Company XYZ</p>
+          <p>Company skillmento</p>
           <p>Location: City, Country</p>
           <button><a className='fi' href='/login'>Apply Now</a></button>
         </div>
-        {/* Add more internship cards as needed */}
+      
       </div>
     </div>
   );
