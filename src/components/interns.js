@@ -61,8 +61,7 @@ const [jobStatus, setJobStatus] = useState([]);
         const response = await fetch(`${baseURL}/fetchJobStatus/${jobId}`);
         const jobStatusData = await response.json();
     
-       
-        setJobStatus(jobStatusData);
+        updatePostedJobsWithStatus(jobStatusData);
       } catch (error) {
         console.error('Error fetching job status:', error);
       }
