@@ -184,7 +184,7 @@ const [declinedBids, setDeclinedBids] = useState([]);
   
       if (response.ok) {
         console.log('Bid accepted successfully:', data);
-        alert("Bid Accepted Successfully!!!");
+        alert("Bid Accepted Successfully!,will contact you for the interview shortly");
         setAcceptedBids((prevAcceptedBids) => [...prevAcceptedBids, data]);
       } else {
         console.error('Failed to accept bid:', data.message);
