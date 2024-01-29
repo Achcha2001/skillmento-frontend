@@ -48,8 +48,7 @@ const [jobStatus, setJobStatus] = useState([]);
       }
     };
     const updatePostedJobsWithStatus = (jobStatusData) => {
-      // Your logic to update 'postedJobs' with the latest status
-      // For example:
+     
       setPostedJobs((prevJobs) =>
         prevJobs.map((job) =>
           job.id === jobStatusData.id ? { ...job, status: jobStatusData.status } : job

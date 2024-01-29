@@ -18,7 +18,7 @@ const Login = () => {
 
       // Check if the credentials are for admin
       if (email === 'admin@gmail.com' && password === 'admin') {
-        navigate('/adminportal'); // Redirect to admin portal
+        navigate('/adminportal'); 
         return;
       }
 
@@ -40,7 +40,7 @@ const Login = () => {
         console.log('Login successful:', data);
         window.alert(`Login successful. User Type: ${data.userType}`);
 
-        // Redirect to intern or employer portal based on userType
+        
         if (data.userType === 'employer') {
           navigate('/employer');
         } else {

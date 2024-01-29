@@ -6,14 +6,14 @@
    margin-right: auto;
    margin-bottom: auto;
     padding: 20px;
-    background-color: #f8f9fa; /* Light gray background color */
+    background-color: #f8f9fa; 
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Shadow effect */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
   }
   
   h2 {
     text-align: center;
-    color: #007bff; /* Primary color for headings */
+    color: #007bff; 
   }
   
   .form-label {
@@ -24,7 +24,7 @@
     width: 100%;
     padding: 10px;
     margin-bottom: 15px;
-    border: 1px solid #ced4da; /* Border color */
+    border: 1px solid #ced4da; 
     border-radius: 5px;
   }
   
@@ -47,7 +47,7 @@
  
   
   .btn-primary1:hover {
-    color: green; /* Darker color on hover */
+    color: green; 
   }
   
   .mt-3 {
@@ -58,9 +58,9 @@
     text-align: center;
   }
   
-  /* Link styles */
+ 
   a {
-    color: #007bff; /* Link color */
+    color: #007bff; 
     text-decoration: none;
   }
   
