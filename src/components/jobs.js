@@ -1,7 +1,7 @@
-// JobPage.js
+
 
 import React from 'react';
-import './JobPage.css'; // Import your CSS file for styling
+import './JobPage.css'; 
 
 const JobPage = () => {
   return (
@@ -28,7 +28,7 @@ const JobPage = () => {
           <p>Shape the user experience and interface of our products as a UX/UI designer.</p>
         </div>
 
-        {/* Add more job types as needed */}
+     
 
       </section>
     </div>
