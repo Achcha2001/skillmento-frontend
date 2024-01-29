@@ -186,7 +186,7 @@ const { bidStatus } = useSharedState();
   
       if (response.ok) {
         console.log('Bid accepted successfully:', data);
-        alert("Bid Accepted Successfully!!");
+        alert("Bid Accepted Successfully!!,Contact the candidate for the interview.");
         updateBidStatus('Accepted');
         setAcceptedBids((prevAcceptedBids) => [...prevAcceptedBids, data]);
       } else {
