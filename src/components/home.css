@@ -8,6 +8,9 @@
   }
   .masthead{
     margin-top: 50px;
+  } .fi{
+    font-style: none;
+    color: white;
   }
  
   .portfolio-item {

@@ -37,7 +37,7 @@ const FindIntern = () => {
           <h4>Software Development Intern</h4>
           <p>Company XYZ</p>
           <p>Location: City, Country</p>
-          <button>Apply Now</button>
+          <button><a className='fi' href='/login'>Apply Now</a></button>
         </div>
         {/* Add more internship cards as needed */}
       </div>
