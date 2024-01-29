@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { Calendar, momentLocalizer } from 'react-big-calendar';
 import moment from 'moment';
 import baseURL from './baseurl';
-import { useSharedState } from './SharedStateContext';
+
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 
 const localizer = momentLocalizer(moment);
@@ -25,16 +25,13 @@ const Intern = () => {
 const [contactNumber, setContactNumber] = useState('');
 const [showBidForm, setShowBidForm] = useState(false);
 const [selectedJobForBid, setSelectedJobForBid] = useState(null);
-const { bidStatus } = useSharedState();
+
 const [loggedInUserName, setLoggedInUserName] = useState(null);
 const [mockInterviewDetails, setMockInterviewDetails] = useState([]);
 
 const [jobStatus, setJobStatus] = useState([]);
   useEffect(() => {
-    if (bidStatus === 'Accepted') {
-      // Display an alert or perform other actions
-      alert('Bid Accepted!');
-    }
+  
     const fetchMockInterviewDetails = async () => {
       try {
         const response = await fetch(`${baseURL}/fetchMockInterviews`);
@@ -129,7 +126,7 @@ const [jobStatus, setJobStatus] = useState([]);
     fetchLoggedInUserName();
     fetchMockInterviewDetails();
     fetchJobStatus();
-    bidStatus();
+    
   }, []);
 
   const handleFileUpload = (event) => {
